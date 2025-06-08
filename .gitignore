@@ -1,1 +1,8 @@
+# Node.js dependencies
+node_modules/
+# Environment variables
 .env
+# Sensitive config files
+backend/config/db.js
+# Logs
+*.log
