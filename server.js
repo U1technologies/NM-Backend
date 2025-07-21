@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const contactRoutes = require('./routes/contactRoutes');
 const authRoutes = require('./routes/authRoute');
+const jobRoutes = require('./routes/jobRoutes');
+
 
 require('dotenv').config();
 
@@ -24,6 +26,8 @@ app.use(express.urlencoded({ extended: true })); // ✅ Parses form data
 
 app.use('/api/contacts', contactRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/jobs', jobRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
