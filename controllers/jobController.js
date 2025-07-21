@@ -65,7 +65,6 @@ const createJob = async (req, res) => {
   }
 };
 
-
 // @desc Update an existing job posting
 const updateJob = async (req, res) => {
   try {
