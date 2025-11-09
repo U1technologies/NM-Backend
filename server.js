@@ -1,33 +1,39 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const connectDB = require('./config/db');
-const contactRoutes = require('./routes/contactRoutes');
-const authRoutes = require('./routes/authRoute');
-const jobRoutes = require('./routes/jobRoutes');
+// const express = require('express');
+// const dotenv = require('dotenv');
+// const cors = require('cors');
+// const cookieParser = require('cookie-parser');
+// const bodyParser = require('body-parser');
+// const connectDB = require('./config/db');
+// const contactRoutes = require('./routes/contactRoutes');
+// const authRoutes = require('./routes/authRoute');
+// const jobRoutes = require('./routes/jobRoutes');
 
 
-require('dotenv').config();
+// require('dotenv').config();
 
-dotenv.config();
-connectDB();
+// dotenv.config();
+// connectDB();
 
-const app = express();
+// const app = express();
 
-// Use cookie-parser middleware
-app.use(cookieParser());
+// // Use cookie-parser middleware
+// app.use(cookieParser());
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.json()); // ✅ Required for parsing JSON request bodies
-app.use(express.urlencoded({ extended: true })); // ✅ Parses form data
+// app.use(cors());
+// app.use(bodyParser.json());
+// app.use(express.json()); // ✅ Required for parsing JSON request bodies
+// app.use(express.urlencoded({ extended: true })); // ✅ Parses form data
 
-app.use('/api/contacts', contactRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/jobs', jobRoutes);
+// app.use('/api/contacts', contactRoutes);
+// app.use('/api/auth', authRoutes);
+// app.use('/api/jobs', jobRoutes);
 
 
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+// server.js
+const app = require('./app');
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+app.listen(PORT, () => console.log(`🚀 Server running locally on port ${PORT}`));

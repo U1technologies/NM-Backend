@@ -6,3 +6,5 @@ node_modules/
 backend/config/db.js
 # Logs
 *.log
+.DS_Store
+.vercel
