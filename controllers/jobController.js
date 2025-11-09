@@ -1,6 +1,22 @@
 const Job = require('../models/jobModel');
 const Application = require('../models/applicationModel');
 
+const normalizeDate = (dateString) => {
+  if (!dateString) return '';
+  // Try parsing DD-MM-YYYY
+  let [day, month, year] = dateString.split('-').map(Number);
+  if (year > 1000) {
+    // DD-MM-YYYY format
+    return new Date(year, month - 1, day).toISOString().split('T')[0]; // Convert to YYYY-MM-DD
+  }
+  // Try parsing YYYY-MM-DD
+  [year, month, day] = dateString.split('-').map(Number);
+  if (year > 1000) {
+    return new Date(year, month - 1, day).toISOString().split('T')[0]; // Already YYYY-MM-DD
+  }
+  return ''; // Invalid date
+};
+
 // @desc Create a new job posting
 const createJob = async (req, res) => {
   try {
@@ -97,7 +113,12 @@ const updateJob = async (req, res) => {
     if (benefits !== undefined) job.benefits = benefits;
     if (jobDescription) job.jobDescription = jobDescription;
     if (qualifications) job.qualifications = qualifications;
-    if (deadline !== undefined) job.deadline = deadline;
+    if (deadline) {
+  job.deadline = new Date(deadline);
+} else {
+  job.deadline = null; 
+}
+
 
     // Validate experience range if both provided
     if (experienceMin !== undefined && experienceMax !== undefined && experienceMin > experienceMax) {
@@ -143,37 +164,27 @@ const getJobs = async (req, res) => {
 const applyJob = async (req, res) => {
   try {
     const { jobId } = req.params;
-    const { 
-      firstName, lastName, email, phone, coverLetter, linkedinUrl, 
-      portfolioUrl, experience, expectedSalary, currentCTC, noticePeriod 
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      coverLetter,
+      linkedinUrl,
+      portfolioUrl,
+      experience,
+      expectedSalary,
+      currentCTC,
+      noticePeriod,
     } = req.body;
 
-    // Validate required fields
-    if (!jobId || !firstName || !lastName || !email || !phone || !req.file) {
-      return res.status(400).json({ success: false, message: "All required fields must be filled!" });
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: 'Resume is required' });
     }
 
-    // Check if job exists
-    const job = await Job.findById(jobId);
-    if (!job) {
-      return res.status(404).json({ success: false, message: "Job not found" });
-    }
+    const resumeUrl = req.file.path; // Cloudinary URL with extension
 
-    // Validate file type
-    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-    if (!allowedTypes.includes(req.file.mimetype)) {
-      return res.status(400).json({ success: false, message: "Invalid file type. Only PDF, DOC, or DOCX allowed!" });
-    }
-
-    // Validate file size (max 5MB)
-    if (req.file.size > 5 * 1024 * 1024) {
-      return res.status(400).json({ success: false, message: "File size exceeds 5MB limit!" });
-    }
-
-    // Store file path (assuming uploaded to uploads folder)
-    const resumePath = path.join('uploads', req.file.filename);
-
-    const application = await Application.create({
+    const application = new Application({
       jobId,
       firstName,
       lastName,
@@ -186,14 +197,30 @@ const applyJob = async (req, res) => {
       expectedSalary,
       currentCTC,
       noticePeriod,
-      resume: resumePath
+      resume: resumeUrl,
     });
 
-    res.status(201).json({ success: true, message: "Application submitted successfully", data: application });
-
+    await application.save();
+    res.status(201).json({ success: true, message: 'Application submitted successfully' });
   } catch (error) {
+    console.error('Error in applyJob:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+const getApplications = async (req, res) => {
+  try {
+    console.log('Fetching applications...');
+    const applications = await Application.find()
+      .populate('jobId', 'jobTitle') // Populate jobId with jobTitle
+      .sort({ createdAt: -1 });
+    console.log('Fetched applications:', applications.length);
+    res.status(200).json({ success: true, data: applications });
+  } catch (error) {
+    console.error('Error fetching applications:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
 
-module.exports = { createJob, updateJob, deleteJob, getJobs, applyJob };
+
+module.exports = { createJob, updateJob, deleteJob, getJobs, applyJob, getApplications };
