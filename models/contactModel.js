@@ -7,6 +7,11 @@ const contactSchema = mongoose.Schema(
     phone: { type: String, required: true }, // Added phone field
     service: { type: String, required: true }, // Updated field to match frontend
     message: { type: String }, // Optional field
+    remark: {
+      type: String,
+      enum: ["New", "Contacted", "In Discussion", "Proposal Sent", "Converted", "Follow Up", "Not Interested", "Spam"],
+      default: "New",
+    },
   },
   { timestamps: true }
 );

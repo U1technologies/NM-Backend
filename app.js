@@ -29,6 +29,7 @@ const connectDB = require('./config/db');
 const contactRoutes = require('./routes/contactRoutes');
 const authRoutes = require('./routes/authRoute');
 const jobRoutes = require('./routes/jobRoutes');
+const serviceInquiryRoutes = require('./routes/serviceInquiryRoutes');
 
 dotenv.config();
 connectDB();
@@ -49,6 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/contacts', contactRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
+app.use('/api/inquiries', serviceInquiryRoutes);
 
 // Optional: Health check route
 app.get('/', (req, res) => res.json({ message: 'Backend running fine!' }));
