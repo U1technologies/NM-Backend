@@ -1,7 +1,8 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const { loginUser, registerUser } = require("../controllers/authController");
 const authMiddleware = require("../middleware/authMiddleware"); // Import middleware
-const User = require("../models/userModel"); 
+const User = require("../models/userModel");
 
 const router = express.Router();
 
@@ -32,6 +33,26 @@ router.get("/me", authMiddleware, async (req, res) => {
     } catch (error) {
         console.error("Error fetching user:", error);
         res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+// Change Password Route (protected)
+router.post("/change-password", authMiddleware, async (req, res) => {
+    const { currentPassword, newPassword } = req.body;
+    if (!currentPassword || !newPassword) {
+        return res.status(400).json({ error: "Both fields are required" });
+    }
+    try {
+        const user = await User.findById(req.user.id);
+        const isMatch = await bcrypt.compare(currentPassword, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ error: "Current password is incorrect" });
+        }
+        user.password = newPassword; // pre-save hook hashes it
+        await user.save();
+        res.json({ message: "Password changed successfully" });
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 
