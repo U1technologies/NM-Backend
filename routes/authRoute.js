@@ -1,6 +1,12 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const { loginUser, registerUser } = require("../controllers/authController");
+const { loginUser, verifyLoginTwoFactor, registerUser } = require("../controllers/authController");
+const {
+    startTwoFactorSetup,
+    confirmTwoFactorSetup,
+    disableTwoFactor,
+    getTwoFactorStatus,
+} = require("../controllers/twoFactorController");
 const authMiddleware = require("../middleware/authMiddleware"); // Import middleware
 const User = require("../models/userModel");
 
@@ -11,6 +17,13 @@ router.post("/register", registerUser);
 
 // Login Route
 router.post("/login", loginUser);
+router.post("/login/verify-2fa", verifyLoginTwoFactor);
+
+// 2FA setup/management for the currently logged-in account (protected — acts on req.user.id)
+router.get("/2fa/status", authMiddleware, getTwoFactorStatus);
+router.post("/2fa/setup", authMiddleware, startTwoFactorSetup);
+router.post("/2fa/confirm", authMiddleware, confirmTwoFactorSetup);
+router.post("/2fa/disable", authMiddleware, disableTwoFactor);
 
 // Logout Route
 router.post("/logout", (req, res) => {
@@ -21,14 +34,22 @@ router.post("/logout", (req, res) => {
 // ✅ Protected Route to Get Logged-in User
 router.get("/me", authMiddleware, async (req, res) => {
     try {
-        const user = await User.findById(req.user.id).select("-password"); // Exclude password
+        const user = await User.findById(req.user.id).select("-password").populate("role", "name permissions"); // Exclude password
         if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
+        // userType stays "admin" for every active account — every page that gates on
+        // withProtectedRoute(Component, ["admin"]) keeps working unchanged. `role`/`permissions`
+        // are the new, more granular layer: null permissions means "no role assigned yet",
+        // which both this response and requirePermission.js treat as full access (matches the
+        // single bootstrap admin before Roles & Permissions is set up for them).
         res.json({
           _id: user._id,
           email: user.email,
-          userType: "admin", // 🔹 Add this field manually or fetch from DB
+          name: user.name || "",
+          userType: "admin",
+          role: user.role?.name || null,
+          permissions: user.role?.permissions || null,
       });
     } catch (error) {
         console.error("Error fetching user:", error);
