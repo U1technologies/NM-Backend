@@ -31,10 +31,11 @@ const DEFAULT_ROLES = [
   },
   {
     name: 'Content Manager',
-    description: 'Full control over posts, categories, tags, authors, comments, and media.',
+    description: 'Full control over posts, categories, tags, authors, comments, media, and events.',
     permissions: [
       'posts.view', 'posts.create', 'posts.edit', 'posts.delete', 'posts.publish',
       'categories.manage', 'tags.manage', 'authors.manage', 'comments.moderate', 'media.manage',
+      'events.view', 'events.create', 'events.edit', 'events.delete',
     ],
     isSystemRole: true,
   },
