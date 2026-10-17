@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const ALL_PERMISSIONS = [
   'posts.view', 'posts.create', 'posts.editOwn', 'posts.edit', 'posts.delete', 'posts.publish',
   'categories.manage', 'tags.manage', 'authors.manage',
+  'events.view', 'events.create', 'events.edit', 'events.delete',
   'comments.moderate',
   'newsletter.manage',
   'media.manage',

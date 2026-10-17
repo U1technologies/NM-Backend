@@ -47,6 +47,7 @@ const internalLinkRoutes = require('./routes/internalLinkRoutes');
 const redirectRoutes = require('./routes/redirectRoutes');
 const blogRevisionRoutes = require('./routes/blogRevisionRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
+const eventRoutes = require('./routes/eventRoutes');
 
 dotenv.config();
 connectDB();
@@ -85,6 +86,7 @@ app.use('/api/internal-links', internalLinkRoutes);
 app.use('/api/redirects', redirectRoutes);
 app.use('/api/blog-revisions', blogRevisionRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/events', eventRoutes);
 
 // Optional: Health check route
 app.get('/', (req, res) => res.json({ message: 'Backend running fine!' }));
