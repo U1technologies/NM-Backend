@@ -18,9 +18,10 @@ const ALL_PERMISSIONS = [
   'settings.manage',
 ];
 
-// Permission keys owned by the NTrack platform, which shares this database's `roles` collection.
-// This app never grants or enforces them; they are only accepted so roles that already hold them
-// can still be saved (and re-seeded) here without NTrack losing access.
+// Permission keys from the creators/campaigns/offer-tracking module (feature/influencer-marketing
+// branch, not merged here). Roles in the database already hold them, so this app must accept them
+// or those roles can't be saved. This app never grants or enforces them, and they are not shown in
+// the Roles & Permissions screen. (NTrack has its own separate database and does not use them.)
 const EXTERNAL_PERMISSIONS = [
   'creators.view', 'creators.manage',
   'campaigns.view', 'campaigns.manage',
