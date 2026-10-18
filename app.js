@@ -50,7 +50,6 @@ const notificationRoutes = require('./routes/notificationRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 
 dotenv.config();
-connectDB();
 
 const app = express();
 
@@ -63,6 +62,16 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Wait for the database before any route runs; answers 503 (not a crash) if it is unreachable.
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch {
+    res.status(503).json({ success: false, message: 'Database unavailable', data: null });
+  }
+});
 
 // Routes
 app.use('/api/contacts', contactRoutes);
