@@ -5,7 +5,7 @@ const logActivity = require('../utils/activityLogger');
 
 const EVENT_FIELDS = [
   'title', 'seoTitle', 'metaDescription', 'description', 'content', 'location', 'category',
-  'geoRegion', 'startDate', 'endDate', 'href', 'image', 'imageAlt', 'featured', 'published',
+  'geoRegion', 'startDate', 'endDate', 'href', 'image', 'imageAlt', 'region', 'gradient', 'featured', 'published',
 ];
 
 const slugExists = (excludeId) => async (slug) => {

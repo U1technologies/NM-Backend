@@ -38,6 +38,11 @@ const eventSchema = mongoose.Schema(
     image: { type: String, default: '' },
     imageAlt: { type: String, default: '' },
 
+    // Optional card styling: short hero label on the card image (defaults to geoRegion) and a CSS
+    // gradient behind the image. Both fall back to automatic values on the website when blank.
+    region: { type: String, default: '', trim: true },
+    gradient: { type: String, default: '' },
+
     // Controls the homepage "Upcoming Events" strip, which only ever shows a handful of events.
     featured: { type: Boolean, default: false, index: true },
     published: { type: Boolean, default: true, index: true },
