@@ -2,7 +2,7 @@ const Role = require('../models/roleModel');
 const User = require('../models/userModel');
 const logActivity = require('../utils/activityLogger');
 
-const { ALL_PERMISSIONS } = Role;
+const { ALL_PERMISSIONS, VALID_PERMISSIONS } = Role;
 
 // @desc List every role, with how many users currently hold it
 const getRoles = async (req, res) => {
@@ -25,7 +25,7 @@ const createRole = async (req, res) => {
     if (!name?.trim()) {
       return res.status(400).json({ success: false, message: 'Role name is required' });
     }
-    const invalid = (permissions || []).filter((p) => !ALL_PERMISSIONS.includes(p));
+    const invalid = (permissions || []).filter((p) => !VALID_PERMISSIONS.includes(p));
     if (invalid.length) {
       return res.status(400).json({ success: false, message: `Unknown permission(s): ${invalid.join(', ')}` });
     }
@@ -51,7 +51,7 @@ const updateRole = async (req, res) => {
     }
 
     if (req.body.permissions !== undefined) {
-      const invalid = req.body.permissions.filter((p) => !ALL_PERMISSIONS.includes(p));
+      const invalid = req.body.permissions.filter((p) => !VALID_PERMISSIONS.includes(p));
       if (invalid.length) {
         return res.status(400).json({ success: false, message: `Unknown permission(s): ${invalid.join(', ')}` });
       }

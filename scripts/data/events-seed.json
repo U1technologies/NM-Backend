@@ -1,0 +1,245 @@
+[
+  {
+    "title": "Affiliate World, Dubai",
+    "slug": "affiliate-world-dubai",
+    "description": "Affiliate World Dubai is a global performance marketing conference.",
+    "location": "Dubai, UAE",
+    "category": "Conference",
+    "geoRegion": "MEA",
+    "region": "Dubai",
+    "startDate": "2026-03-04",
+    "endDate": "2026-03-05",
+    "href": "https://affiliateworldconferences.com/dubai/",
+    "image": "/assets/Images/events/dubai.jpg",
+    "imageAlt": "Affiliate World, Dubai venue city, Dubai, UAE",
+    "gradient": "linear-gradient(135deg, #0f3d5c 0%, #1b6f8f 55%, #c9a66b 100%)",
+    "featured": true,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>Affiliate World Dubai brings together affiliates, advertisers, and networks from across the Middle East and beyond for two days of talks, workshops, and deal-making focused on performance marketing.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>For an agency working across affiliate and performance channels, Dubai is one of the key stops on the annual conference calendar, offering a close look at where affiliate marketing in the MENA region is heading next.</p>"
+      }
+    ]
+  },
+  {
+    "title": "Affiliate World Asia, Thailand",
+    "slug": "affiliate-world-asia",
+    "description": "Network with top affiliate marketers and industry experts in Asia.",
+    "location": "Bangkok, Thailand",
+    "category": "Conference",
+    "geoRegion": "APAC",
+    "region": "Asia",
+    "startDate": "2026-12-09",
+    "endDate": "2026-12-10",
+    "href": "https://affiliateworldconferences.com/asia/",
+    "image": "/assets/Images/events/bangkok.jpg",
+    "imageAlt": "Affiliate World Asia, Thailand venue city, Bangkok, Thailand",
+    "gradient": "linear-gradient(135deg, #3b2a4a 0%, #a2546b 55%, #f2b56b 100%)",
+    "featured": true,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>Affiliate World Asia gathers affiliate marketers, networks, and advertisers in Bangkok to cover traffic sources, offer verticals, and growth strategies specific to the Asia-Pacific market.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It is a useful gauge of how affiliate and performance marketing trends in APAC compare to other regions, and a chance to connect with publishers and advertisers active in the market.</p>"
+      }
+    ]
+  },
+  {
+    "title": "Affiliate World, Budapest",
+    "slug": "affiliate-world-budapest",
+    "description": "Europe’s biggest affiliate marketing event with global leaders.",
+    "location": "Budapest, Hungary",
+    "category": "Conference",
+    "geoRegion": "Europe",
+    "region": "Europe",
+    "startDate": "2026-07-09",
+    "endDate": "2026-07-10",
+    "href": "https://affiliateworldconferences.com/europe/",
+    "image": "/assets/Images/events/budapest.jpg",
+    "imageAlt": "Affiliate World, Budapest venue city, Budapest, Hungary",
+    "gradient": "linear-gradient(135deg, #1e2a3a 0%, #4a5d78 55%, #b98a5e 100%)",
+    "featured": true,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>Affiliate World Europe is one of the largest performance marketing conferences on the continent, drawing affiliates, advertisers, and networks to Budapest for talks on scaling campaigns across verticals.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>For agencies and advertisers working with European traffic, it is a chance to track where compliance, creative, and tracking standards in the region are moving.</p>"
+      }
+    ]
+  },
+  {
+    "title": "Affiliate World, Mexico",
+    "slug": "affiliate-world-mexico",
+    "description": "7,000+ affiliates and advertisers gathering in Cancún.",
+    "location": "Cancún, Mexico",
+    "category": "Conference",
+    "geoRegion": "Americas",
+    "region": "Americas",
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-08",
+    "href": "https://affiliateworldconferences.com/americas/",
+    "image": "/assets/Images/events/cancun.jpg",
+    "imageAlt": "Affiliate World, Mexico venue city, Cancún, Mexico",
+    "gradient": "linear-gradient(135deg, #0b4f5c 0%, #1aa3a8 55%, #8fd8c8 100%)",
+    "featured": true,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>Affiliate World Americas is among the largest affiliate marketing conferences globally, bringing thousands of affiliates and advertisers to Cancún each year.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>Its scale makes it a strong barometer of where affiliate and performance marketing budgets across North and South America are headed.</p>"
+      }
+    ]
+  },
+  {
+    "title": "PI LIVE Europe",
+    "slug": "pi-live-europe",
+    "description": "A leading performance marketing and affiliate industry event in London.",
+    "location": "London, UK",
+    "category": "Conference",
+    "geoRegion": "Europe",
+    "region": "London",
+    "startDate": "2026-10-20",
+    "endDate": "2026-10-21",
+    "href": "https://performancein.live/europe/",
+    "image": "/assets/Images/events/london.jpg",
+    "imageAlt": "PI LIVE Europe venue city, London, UK",
+    "gradient": "linear-gradient(135deg, #1f2937 0%, #3b5bdb 55%, #74c0fc 100%)",
+    "featured": false,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>PI LIVE Europe is a performance marketing conference held in London, covering affiliate, influencer, and partnership marketing across a range of industries.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It is a key event to track for anyone following how European performance marketing strategy and regulation are evolving.</p>"
+      }
+    ]
+  },
+  {
+    "title": "SiGMA Central Europe",
+    "slug": "sigma-central-europe",
+    "description": "A major gaming and affiliate marketing summit held in Rome.",
+    "location": "Rome, Italy",
+    "category": "Summit",
+    "geoRegion": "Europe",
+    "region": "Rome",
+    "startDate": "2026-11-02",
+    "endDate": "2026-11-05",
+    "href": "https://sigma.world/summits/world/",
+    "image": "/assets/Images/events/rome.jpg",
+    "imageAlt": "SiGMA Central Europe venue city, Rome, Italy",
+    "gradient": "linear-gradient(135deg, #5c3a21 0%, #b5651d 55%, #e8b974 100%)",
+    "featured": false,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>SiGMA Central Europe is a multi-day summit in Rome covering iGaming, affiliate marketing, and emerging tech, with a strong focus on the Central European market.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It brings together affiliates, operators, and advertisers for a close look at regional regulation and growth opportunities.</p>"
+      }
+    ]
+  },
+  {
+    "title": "iGB Affiliate",
+    "slug": "igb-affiliate",
+    "description": "A major iGaming affiliate marketing conference in Barcelona.",
+    "location": "Barcelona, Spain",
+    "category": "Conference",
+    "geoRegion": "Europe",
+    "region": "Barcelona",
+    "startDate": "2027-01-19",
+    "endDate": "2027-01-20",
+    "href": "https://barcelona.igbaffiliate.com/",
+    "image": "/assets/Images/events/barcelona.jpg",
+    "imageAlt": "iGB Affiliate venue city, Barcelona, Spain",
+    "gradient": "linear-gradient(135deg, #0b3d59 0%, #1f7a8c 55%, #f4a259 100%)",
+    "featured": false,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>iGB Affiliate is one of the longest-running iGaming affiliate events, held annually in Barcelona and covering affiliate strategy, compliance, and traffic acquisition.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It draws a large cross-section of affiliates, networks, and operators focused on the European and global iGaming market.</p>"
+      }
+    ]
+  },
+  {
+    "title": "SiGMA Africa",
+    "slug": "sigma-africa",
+    "description": "A growing iGaming and affiliate marketing summit in Cape Town.",
+    "location": "Cape Town, South Africa",
+    "category": "Summit",
+    "geoRegion": "Africa",
+    "region": "Cape Town",
+    "startDate": "2027-02-15",
+    "endDate": "2027-02-17",
+    "href": "https://sigma.world/summits/africa/",
+    "image": "/assets/Images/events/capetown.jpg",
+    "imageAlt": "SiGMA Africa venue city, Cape Town, South Africa",
+    "gradient": "linear-gradient(135deg, #2d1b2e 0%, #a23e48 55%, #f2a65a 100%)",
+    "featured": false,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>SiGMA Africa brings the SiGMA Group's gaming and affiliate marketing summit format to Cape Town, reflecting the growing attention on African affiliate and iGaming markets.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It is a useful event to watch for advertisers and affiliates evaluating opportunities across the continent.</p>"
+      }
+    ]
+  },
+  {
+    "title": "SiGMA Dubai",
+    "slug": "sigma-dubai",
+    "description": "A SiGMA Group gaming and affiliate marketing summit in Dubai.",
+    "location": "Dubai, UAE",
+    "category": "Summit",
+    "geoRegion": "MEA",
+    "region": "Dubai",
+    "startDate": "2027-03-15",
+    "endDate": "2027-03-17",
+    "href": "https://sigma.world/summits/eurasia/exhibit/",
+    "image": "/assets/Images/events/dubai.jpg",
+    "imageAlt": "SiGMA Dubai venue city, Dubai, UAE",
+    "gradient": "linear-gradient(135deg, #0f3d5c 0%, #1b6f8f 55%, #c9a66b 100%)",
+    "featured": false,
+    "published": true,
+    "content": [
+      {
+        "type": "richtext",
+        "html": "<p>SiGMA Dubai is a gaming and affiliate marketing summit held in Dubai, covering much of the same ground as Affiliate World Dubai with a different organizer and focus.</p>"
+      },
+      {
+        "type": "richtext",
+        "html": "<p>It adds to Dubai's position as a recurring hub on the affiliate and iGaming conference calendar.</p>"
+      }
+    ]
+  }
+]

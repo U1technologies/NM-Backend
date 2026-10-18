@@ -14,13 +14,13 @@ const DEFAULT_ROLES = [
   {
     name: 'Super Admin',
     description: 'Full access to every module, including user and role management.',
-    permissions: Role.ALL_PERMISSIONS,
+    permissions: [...Role.ALL_PERMISSIONS, ...Role.EXTERNAL_PERMISSIONS],
     isSystemRole: true,
   },
   {
     name: 'Admin',
     description: 'Full access to content and settings, excluding user/role management.',
-    permissions: Role.ALL_PERMISSIONS.filter((p) => p !== 'users.manage'),
+    permissions: [...Role.ALL_PERMISSIONS, ...Role.EXTERNAL_PERMISSIONS].filter((p) => p !== 'users.manage'),
     isSystemRole: true,
   },
   {
