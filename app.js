@@ -48,7 +48,6 @@ const redirectRoutes = require('./routes/redirectRoutes');
 const blogRevisionRoutes = require('./routes/blogRevisionRoutes');
 const notificationRoutes = require('./routes/notificationRoutes');
 const eventRoutes = require('./routes/eventRoutes');
-const affiliateNetworkRoutes = require('./routes/affiliateNetworkRoutes');
 
 dotenv.config();
 
@@ -97,7 +96,6 @@ app.use('/api/redirects', redirectRoutes);
 app.use('/api/blog-revisions', blogRevisionRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/events', eventRoutes);
-app.use('/api/affiliate-networks', affiliateNetworkRoutes);
 
 // Optional: Health check route
 app.get('/', (req, res) => res.json({ message: 'Backend running fine!' }));
